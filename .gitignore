@@ -3,3 +3,8 @@
 
 # app
 build/
+.env*
+
+# npm
+node_modules/
+.npm
