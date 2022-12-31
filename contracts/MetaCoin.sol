@@ -1,5 +1,4 @@
 // SPDX-License-Identifier: MIT
-// Tells the Solidity compiler to compile only from v0.8.13 to v0.9.0
 pragma solidity ^0.8.13;
 
 import "./ConvertLib.sol";
@@ -13,6 +12,7 @@ contract MetaCoin {
         balances[tx.origin] = 10000;
     }
 
+    // 送金
     function sendCoin(address receiver, uint256 amount)
         public
         returns (bool sufficient)
@@ -24,10 +24,12 @@ contract MetaCoin {
         return true;
     }
 
+    // 残高eth
     function getBalanceInEth(address addr) public view returns (uint256) {
         return ConvertLib.convert(getBalance(addr), 2);
     }
 
+    // 残高
     function getBalance(address addr) public view returns (uint256) {
         return balances[addr];
     }

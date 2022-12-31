@@ -7,3 +7,9 @@ truffle compile
 truffle migrate
 truffle console
 ```
+
+## console
+
+```
+let instance = await NAME.deployed()
+```
