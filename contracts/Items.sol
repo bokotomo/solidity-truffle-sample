@@ -3,8 +3,8 @@ pragma solidity ^0.8.13;
 
 import "@openzeppelin/contracts/token/ERC1155/ERC1155.sol";
 
-// let instance = await Items.deployed()
-//  (await instance.balanceOf(accounts[0],3)).toString()
+// let ins = await Items.deployed()
+//  (await ins.balanceOf(accounts[0],3)).toString()
 contract Items is ERC1155 {
     uint256 public constant GOLD = 0;
     uint256 public constant SILVER = 1;

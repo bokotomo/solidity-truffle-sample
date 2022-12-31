@@ -3,6 +3,7 @@ pragma solidity ^0.8.13;
 
 import "./ConvertLib.sol";
 
+// let ins = await MetaCoin.deployed()
 contract MetaCoin {
     mapping(address => uint256) balances;
 
