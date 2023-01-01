@@ -10,12 +10,12 @@ module.exports = function (deployer) {
   deployer.link(ConvertLib, MetaCoin);
   deployer.deploy(MetaCoin);
 
-  // アイテム
+  // アイテム ERC721
   deployer.deploy(UserItem);
 
-  // 複数アイテム
+  // 複数アイテム ERC1155
   deployer.deploy(Items);
 
-  // コイン
+  // コイン ERC20
   deployer.deploy(Gold);
 };
