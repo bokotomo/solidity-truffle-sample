@@ -12,15 +12,15 @@ contract Gold is ERC20, AccessControl {
     bytes32 public constant BURNER_ROLE = keccak256("BURNER_ROLE");
 
     constructor() ERC20("Gold", "GLD") {
-        _grantRole(DEFAULT_ADMIN_ROLE, msg.sender);
-        _mint(msg.sender, 50000 * 10**decimals());
+        super._grantRole(DEFAULT_ADMIN_ROLE, msg.sender);
+        super._mint(msg.sender, 50000 * 10**decimals());
     }
 
     function mint(address to, uint256 amount) public onlyRole(MINTER_ROLE) {
-        _mint(to, amount);
+        super._mint(to, amount);
     }
 
     function burn(address from, uint256 amount) public onlyRole(BURNER_ROLE) {
-        _burn(from, amount);
+        super._burn(from, amount);
     }
 }

@@ -13,10 +13,10 @@ contract Items is ERC1155 {
     uint256 public constant SHIELD = 4;
 
     constructor() ERC1155("https://game.example/api/item/{id}.json") {
-        _mint(msg.sender, GOLD, 10**18, "");
-        _mint(msg.sender, SILVER, 10**27, "");
-        _mint(msg.sender, THORS_HAMMER, 1, "");
-        _mint(msg.sender, SWORD, 10**9, "");
-        _mint(msg.sender, SHIELD, 10**9, "");
+        super._mint(msg.sender, GOLD, 10**18, "");
+        super._mint(msg.sender, SILVER, 10**27, "");
+        super._mint(msg.sender, THORS_HAMMER, 1, "");
+        super._mint(msg.sender, SWORD, 10**9, "");
+        super._mint(msg.sender, SHIELD, 10**9, "");
     }
 }

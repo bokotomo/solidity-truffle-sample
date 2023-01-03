@@ -3,6 +3,7 @@ const MetaCoin = artifacts.require("MetaCoin");
 const UserItem = artifacts.require("UserItem");
 const Gold = artifacts.require("Gold");
 const Items = artifacts.require("Items");
+const RentalItem = artifacts.require("RentalItem");
 
 module.exports = function (deployer) {
   // コイン
@@ -12,6 +13,8 @@ module.exports = function (deployer) {
 
   // アイテム ERC721
   deployer.deploy(UserItem);
+  // 貸し借り可能 ERC4907
+  deployer.deploy(RentalItem);
 
   // 複数アイテム ERC1155
   deployer.deploy(Items);
