@@ -5,6 +5,9 @@ import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
 import "@openzeppelin/contracts/utils/Counters.sol";
 
 // let ins = await UserItem.deployed()
+// ins.awardItem(accounts[1], "https://test")
+// ins.ownerOf(0)
+// ins.tokenURI(0)
 contract UserItem is ERC721URIStorage {
     using Counters for Counters.Counter;
     Counters.Counter private _tokenIds;
