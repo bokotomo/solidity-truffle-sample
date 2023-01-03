@@ -9,9 +9,9 @@ import "@openzeppelin/contracts/utils/Counters.sol";
 // ins.awardItem(accounts[0], "https://test")
 // ins.ownerOf(0)
 // ins.tokenURI(0)
-// ins.setUser(1, accounts[1], 2011122233)
-// ins.userOf(1)
-// (await ins.userExpires(1)).toString()
+// ins.setUser(0, accounts[0], 2011122233)
+// ins.userOf(0)
+// (await ins.userExpires(0)).toString()
 contract RentalItem is ERC721URIStorage, IERC4907 {
     using Counters for Counters.Counter;
     Counters.Counter private _tokenIds;
@@ -42,6 +42,9 @@ contract RentalItem is ERC721URIStorage, IERC4907 {
         return newItemId;
     }
 
+    /**
+     * tokenをuserに期限付きで紐づける
+     */
     function setUser(
         uint256 tokenId,
         address user,
