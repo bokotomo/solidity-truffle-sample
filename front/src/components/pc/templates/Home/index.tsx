@@ -9,7 +9,7 @@ interface Props {
  * Home
  */
 const Home: React.FC<Props> = (p: Props) => {
-  const { onClick } = useHooks();
+  const { onClick, onClickApprove } = useHooks();
 
   return (
     <div>
@@ -21,7 +21,11 @@ const Home: React.FC<Props> = (p: Props) => {
         ))}
       </div>
 
+      <div>Level</div>
       <div onClick={onClick}>button</div>
+
+      <div>approve</div>
+      <div onClick={onClickApprove}>button</div>
     </div>
   );
 };
