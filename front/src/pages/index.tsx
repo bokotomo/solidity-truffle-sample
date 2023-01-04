@@ -1,7 +1,11 @@
 import React from 'react';
+import Home from '../components/pc/templates/Home';
 
-function App() {
-  return <div className="App">ok</div>;
+/**
+ * home
+ */
+function Index() {
+  return <Home />;
 }
 
-export default App;
+export default Index;
