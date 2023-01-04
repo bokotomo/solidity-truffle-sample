@@ -1,4 +1,5 @@
 import React from 'react';
+import { useHooks } from './hooks';
 
 interface Props {
   readonly accounts: string[];
@@ -8,13 +9,12 @@ interface Props {
  * Home
  */
 const Home: React.FC<Props> = (p: Props) => {
-  const onClick = async () => {
-    console.log(p.accounts);
-  };
+  const { onClick } = useHooks();
 
   return (
     <div>
       <div>Accounts</div>
+
       <div>
         {p.accounts.map(account => (
           <div key={account}>{account}</div>

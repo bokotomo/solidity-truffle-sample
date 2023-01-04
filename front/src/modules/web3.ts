@@ -2,7 +2,7 @@ import Web3 from 'web3';
 import { ADDRESS_CONTRACT, CHAIN_HOST, CHAIN_PORT } from '../modules/const/env';
 import { AbiItem } from 'web3-utils';
 import ContractLevelItem from '../contracts/LevelItem.json';
-import { Gold } from '../types/abi/Gold';
+import { LevelItem } from '../types/abi/LevelItem';
 
 const port = CHAIN_PORT;
 const host = CHAIN_HOST;
@@ -12,4 +12,7 @@ export const web3 = new Web3(
 
 const address = ADDRESS_CONTRACT;
 const ABI = ContractLevelItem.abi as any as AbiItem;
-export const contract = new web3.eth.Contract(ABI, address) as unknown as Gold;
+export const contract = new web3.eth.Contract(
+  ABI,
+  address
+) as unknown as LevelItem;
