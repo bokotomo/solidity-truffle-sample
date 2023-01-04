@@ -35,7 +35,7 @@ contract UserItem is ERC721URIStorage {
      * トークンの削除
      */
     function burn(uint256 tokenId) public {
-        if (super._exists(tokenId)) revert("UserItem: nonexistent token");
+        if (!super._exists(tokenId)) revert("UserItem: nonexistent token");
         super._burn(tokenId);
     }
 }
