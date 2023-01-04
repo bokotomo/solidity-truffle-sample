@@ -3,7 +3,7 @@ import Home from '../components/pc/templates/Home';
 import { useFetch } from '../modules/fetch/home';
 
 /**
- * home
+ * ページ: トップページ
  */
 function Index() {
   const { accounts } = useFetch();

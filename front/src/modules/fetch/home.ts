@@ -1,12 +1,6 @@
 import { useEffect, useState, useCallback } from 'react';
-import { web3 } from '../web3';
-import { AbiItem } from 'web3-utils';
-import { Gold } from '../../types/abi/Gold';
-import ContractGold from '../../contracts/Gold.json';
-import { ADDRESS_ACOUNT0, ADDRESS_CONTRACT } from '../const/env';
-
-const address = ADDRESS_CONTRACT;
-const ABI = ContractGold.abi as any as AbiItem;
+import { web3, contract } from '../web3';
+import { ADDRESS_ACOUNT0 } from '../const/env';
 
 interface UseReturn {
   readonly accounts: string[];
@@ -25,17 +19,17 @@ export const useFetch = (): UseReturn => {
     setAccounts(accountsWeb3);
   }, []);
 
-  const b = async () => {
-    const contract = new web3.eth.Contract(ABI, address) as unknown as Gold;
+  const getBalance = useCallback(async () => {
     const addressAcounts0 = ADDRESS_ACOUNT0;
     console.log(await contract.methods.balanceOf(addressAcounts0).call());
-  };
+  }, []);
 
   useEffect(() => {
     console.log('OK');
 
     fetchAccount();
-  }, [fetchAccount]);
+    getBalance();
+  }, [fetchAccount, getBalance]);
 
   return {
     accounts,
