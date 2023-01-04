@@ -25,7 +25,8 @@
     "eject": "react-scripts eject",
     "lint-fix": "npm run format && npm run lint",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx src --color",
-    "format": "prettier --write 'src/**/*.{ts,tsx}'"
+    "format": "prettier --write 'src/**/*.{ts,tsx}'",
+    "typechain": "typechain --target web3-v1 --out-dir types/abi '../truffle/build/contracts/**/*.json'"
   },
   "eslintConfig": {
     "extends": [
