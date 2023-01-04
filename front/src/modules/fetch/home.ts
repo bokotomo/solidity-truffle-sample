@@ -19,9 +19,13 @@ export const useFetch = (): UseReturn => {
     setAccounts(accountsWeb3);
   }, []);
 
+  /**
+   *
+   */
   const getBalance = useCallback(async () => {
     const addressAcounts0 = ADDRESS_ACOUNT0;
-    console.log(await contract.methods.balanceOf(addressAcounts0).call());
+    const b = await contract.methods.balanceOf(addressAcounts0).call();
+    console.log(b);
   }, []);
 
   useEffect(() => {
