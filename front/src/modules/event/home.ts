@@ -21,8 +21,7 @@ export const useEvent = (): void => {
    * MetaMask: チェーン変更された
    */
   const onChainChanged = useCallback((id: string): void => {
-    const chainId = parseInt(id);
-    console.log(chainId);
+    console.log(parseInt(id));
     alert('onChainChanged');
 
     // ただの検証なのでリロードしてしまう

@@ -1,4 +1,5 @@
 import { useEffect, useState, useCallback, useRef } from 'react';
+import { ethers } from 'ethers';
 import { web3, contract } from '../web3';
 import { ADDRESS_ACOUNT0 } from '../const/env';
 
@@ -21,6 +22,14 @@ export const useFetch = (): UseReturn => {
    * アカウント一覧取得
    */
   const fetchAccount = useCallback(async () => {
+    if (typeof window.ethereum !== 'undefined') {
+      const provider = new ethers.providers.Web3Provider(
+        window.ethereum as any
+      );
+      const accounts = await provider.send('eth_requestAccounts', []);
+      console.log(accounts);
+    }
+
     const accountsWeb3 = await web3.eth.getAccounts();
     setAccounts(accountsWeb3);
   }, []);

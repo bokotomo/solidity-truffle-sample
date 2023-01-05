@@ -5,8 +5,8 @@ import size from '../../../modules/const/size';
  * 普通のボタン
  */
 export default styled.button`
-  padding: ${size.ui.l4}px;
-  border-radius: 20px;
+  padding: ${size.ui.l4}px ${size.ui.l6}px;
+  border-radius: 50px;
   background: #2b83e7;
   color: white;
   font-weight: bold;
