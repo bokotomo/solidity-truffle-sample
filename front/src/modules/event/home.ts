@@ -12,6 +12,9 @@ export const useEvent = (): void => {
   const onAccountsChanged = useCallback((accountNo: string): void => {
     console.log(accountNo);
     alert('onAccountsChanged');
+
+    // ただの検証なのでリロードしてしまう
+    window.location.reload();
   }, []);
 
   /**
@@ -21,6 +24,9 @@ export const useEvent = (): void => {
     const chainId = parseInt(id);
     console.log(chainId);
     alert('onChainChanged');
+
+    // ただの検証なのでリロードしてしまう
+    window.location.reload();
   }, []);
 
   useEffect(() => {

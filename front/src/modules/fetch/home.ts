@@ -4,6 +4,8 @@ import { ADDRESS_ACOUNT0 } from '../const/env';
 
 interface UseReturn {
   readonly accounts: string[];
+  readonly myAccount: string | undefined;
+  readonly setMyAccount: (account: string) => void;
 }
 /**
  * データの取得
@@ -11,6 +13,9 @@ interface UseReturn {
 export const useFetch = (): UseReturn => {
   const noEffected = useRef(true);
   const [accounts, setAccounts] = useState<string[]>([]);
+  const [myAccount, setMyAccountState] = useState<string | undefined>(
+    undefined
+  );
 
   /**
    * アカウント一覧取得
@@ -29,13 +34,16 @@ export const useFetch = (): UseReturn => {
     console.log(b);
   }, []);
 
+  /**
+   * アカウントをセット
+   */
+  const setMyAccount = (account: string) => setMyAccountState(account);
+
   useEffect(() => {
     if (noEffected.current) {
       noEffected.current = false;
       return;
     }
-
-    console.log('OK');
 
     fetchAccount();
     getBalance();
@@ -43,5 +51,7 @@ export const useFetch = (): UseReturn => {
 
   return {
     accounts,
+    myAccount,
+    setMyAccount,
   };
 };

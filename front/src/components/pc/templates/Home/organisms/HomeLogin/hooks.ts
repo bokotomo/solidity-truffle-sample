@@ -1,5 +1,3 @@
-import { useState } from 'react';
-
 interface MetaMaskError {
   readonly code: number;
   readonly message: string;
@@ -22,9 +20,9 @@ interface UseReturn {
 /**
  * Hooks: Home
  */
-export const useHooks = (): UseReturn => {
-  const [accountAddress, setAccountAddress] = useState<string>('');
-
+export const useHooks = (
+  setMyAccount: (account: string) => void
+): UseReturn => {
   /**
    * ログインがクリックされた
    */
@@ -35,9 +33,9 @@ export const useHooks = (): UseReturn => {
         const accounts = (await window.ethereum.request({
           method: 'eth_requestAccounts',
         })) as string[];
+        console.log(accounts);
         const account = accounts.length > 0 ? accounts[0] : '';
-        setAccountAddress(account);
-        console.log(account);
+        setMyAccount(account);
 
         const hexChainId = (await window.ethereum.request({
           method: 'eth_chainId',

@@ -7,11 +7,14 @@ import Title from '../../../../atoms/Title';
 
 const Wrapper = styled.div``;
 
+interface Props {
+  readonly setMyAccount: (account: string) => void;
+}
 /**
  * Organisms: HomeLogin
  */
-const HomeLogin: React.FC = () => {
-  const { onClickLogin } = useHooks();
+const HomeLogin: React.FC<Props> = (p: Props) => {
+  const { onClickLogin } = useHooks(p.setMyAccount);
 
   return (
     <Wrapper>

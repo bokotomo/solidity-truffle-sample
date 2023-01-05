@@ -1,4 +1,4 @@
-import { contract } from '../../../../modules/web3';
+import { contract } from '../../../../../../modules/web3';
 
 interface UseReturn {
   // readonly canMetaMask: boolean;

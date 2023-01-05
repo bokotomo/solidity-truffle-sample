@@ -1,12 +1,11 @@
 import React from 'react';
-import { useHooks } from './hooks';
 import styled from '@emotion/styled';
 import Spacer from '../../atoms/Spacer';
-import Button from '../../atoms/Button';
 import Title from '../../atoms/Title';
 import Content from '../../frames/Content';
 import size from '../../../../modules/const/size';
 import HomeLogin from './organisms/HomeLogin';
+import HomeInfo from './organisms/HomeInfo';
 
 const Wrapper = styled.div`
   padding: ${size.ui.l4}px;
@@ -14,21 +13,32 @@ const Wrapper = styled.div`
 
 interface Props {
   readonly accounts: string[];
+  readonly myAccount: string | undefined;
+  readonly setMyAccount: (account: string) => void;
 }
-
 /**
  * Template: Home
  */
 const Home: React.FC<Props> = (p: Props) => {
-  const { onClick, onClickApprove } = useHooks();
-
   return (
     <Wrapper>
-      <HomeLogin />
+      {!p.myAccount && (
+        <>
+          <HomeLogin setMyAccount={p.setMyAccount} />
+          <Spacer.M />
+        </>
+      )}
+
+      {p.myAccount && (
+        <>
+          <Spacer.M />
+          <HomeInfo myAccount={p.myAccount} />
+        </>
+      )}
 
       <Spacer.M />
 
-      <Title>Accounts</Title>
+      <Title>Chain All Accounts</Title>
 
       <Spacer.M />
 
@@ -37,18 +47,6 @@ const Home: React.FC<Props> = (p: Props) => {
           <div key={account}>{account}</div>
         ))}
       </Content>
-
-      <Spacer.M />
-
-      <Title>Level</Title>
-      <Spacer.S />
-      <Button onClick={onClick}>button</Button>
-
-      <Spacer.M />
-
-      <Title>approve</Title>
-      <Spacer.S />
-      <Button onClick={onClickApprove}>approveする</Button>
     </Wrapper>
   );
 };

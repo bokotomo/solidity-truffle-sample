@@ -7,9 +7,15 @@ import { useEvent } from '../modules/event/home';
  */
 function Index() {
   useEvent();
-  const { accounts } = useFetch();
+  const { accounts, myAccount, setMyAccount } = useFetch();
 
-  return <TemplateHome accounts={accounts} />;
+  return (
+    <TemplateHome
+      accounts={accounts}
+      myAccount={myAccount}
+      setMyAccount={setMyAccount}
+    />
+  );
 }
 
 export default Index;
