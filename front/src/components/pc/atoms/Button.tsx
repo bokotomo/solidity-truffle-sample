@@ -1,7 +1,11 @@
 import styled from '@emotion/styled';
+import size from '../../../modules/const/size';
 
+/**
+ * 普通のボタン
+ */
 export default styled.button`
-  padding: 16px;
+  padding: ${size.ui.l4}px;
   border-radius: 20px;
   background: #2b83e7;
   color: white;

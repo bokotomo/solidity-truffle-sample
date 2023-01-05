@@ -3,18 +3,12 @@ import { useHooks } from './hooks';
 import styled from '@emotion/styled';
 import Spacer from '../../atoms/Spacer';
 import Button from '../../atoms/Button';
+import Title from '../../atoms/Title';
+import Content from '../../frames/Content';
+import size from '../../../../modules/const/size';
 
 const Wrapper = styled.div`
-  padding: 16px;
-`;
-const Title = styled.div`
-  font-size: 20px;
-  font-weight: bold;
-`;
-const Content = styled.div`
-  padding: 16px;
-  background: white;
-  border-radius: 4px;
+  padding: ${size.ui.l4}px;
 `;
 
 interface Props {
@@ -22,7 +16,7 @@ interface Props {
 }
 
 /**
- * Home
+ * Template: Home
  */
 const Home: React.FC<Props> = (p: Props) => {
   const { onClick, onClickApprove } = useHooks();

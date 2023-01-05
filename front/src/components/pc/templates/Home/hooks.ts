@@ -5,6 +5,9 @@ interface UseReturn {
   readonly onClick: () => Promise<void>;
   readonly onClickApprove: () => Promise<void>;
 }
+/**
+ * Hooks: Home
+ */
 export const useHooks = (): UseReturn => {
   /**
    * クリックされた

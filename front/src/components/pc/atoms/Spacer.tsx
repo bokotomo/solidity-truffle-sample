@@ -1,21 +1,25 @@
 import styled from '@emotion/styled';
+import size from '../../../modules/const/size';
 
 const SpacerS = styled.div({
-  height: 8,
+  height: size.ui.l3,
 });
 const SpacerM = styled.div({
-  height: 16,
+  height: size.ui.l4,
 });
 const SpacerXM = styled.div({
-  height: 24,
+  height: size.ui.l6,
 });
 const SpacerL = styled.div({
-  height: 32,
+  height: size.ui.l8,
 });
 const SpacerXL = styled.div({
-  height: 40,
+  height: size.ui.l10,
 });
 
+/**
+ * 余白: 縦
+ */
 export default {
   S: SpacerS,
   M: SpacerM,
