@@ -1,4 +1,4 @@
-import Home from '../components/pc/templates/Home';
+import TemplateHome from '../components/pc/templates/Home';
 import { useFetch } from '../modules/fetch/home';
 import { useEvent } from '../modules/event/home';
 
@@ -9,7 +9,7 @@ function Index() {
   useEvent();
   const { accounts } = useFetch();
 
-  return <Home accounts={accounts} />;
+  return <TemplateHome accounts={accounts} />;
 }
 
 export default Index;

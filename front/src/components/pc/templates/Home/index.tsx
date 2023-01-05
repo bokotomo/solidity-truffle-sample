@@ -6,6 +6,7 @@ import Button from '../../atoms/Button';
 import Title from '../../atoms/Title';
 import Content from '../../frames/Content';
 import size from '../../../../modules/const/size';
+import HomeLogin from './organisms/HomeLogin';
 
 const Wrapper = styled.div`
   padding: ${size.ui.l4}px;
@@ -19,14 +20,11 @@ interface Props {
  * Template: Home
  */
 const Home: React.FC<Props> = (p: Props) => {
-  const { onClick, onClickApprove, onClickLogin } = useHooks();
+  const { onClick, onClickApprove } = useHooks();
 
   return (
     <Wrapper>
-      <Title>MetaMaskに接続する</Title>
-      <Spacer.S />
-      <Button onClick={onClickLogin}>ログイン</Button>
-      <Spacer.S />
+      <HomeLogin />
 
       <Spacer.M />
 
