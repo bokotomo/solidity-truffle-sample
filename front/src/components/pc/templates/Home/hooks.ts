@@ -7,6 +7,17 @@ interface MetaMaskError {
   readonly message: string;
 }
 
+/** ChainId一覧 */
+enum Chains {
+  Mainnet = 1,
+  Ropsten = 3,
+  Rinkeby = 4,
+  Kovan = 42,
+  PrivateChain = 1337,
+  EthereumClassicMainnet = 61,
+  Morden = 62,
+}
+
 interface UseReturn {
   // readonly canMetaMask: boolean;
   readonly onClick: () => Promise<void>;
@@ -48,7 +59,14 @@ export const useHooks = (): UseReturn => {
         const acccounts = (await window.ethereum.request({
           method: 'eth_requestAccounts',
         })) as string[];
-        console.log(acccounts);
+        const acccount = acccounts.length > 0 ? acccounts[0] : '';
+        console.log(acccount);
+
+        const hexChainId = (await window.ethereum.request({
+          method: 'eth_chainId',
+        })) as string;
+        const chainId = parseInt(hexChainId);
+        console.log(Chains[chainId]);
       } catch (err: unknown) {
         const e = err as MetaMaskError;
         if (e.code === 4001) {
