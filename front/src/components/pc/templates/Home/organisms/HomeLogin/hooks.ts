@@ -1,3 +1,6 @@
+import { ethers } from 'ethers';
+import { Web3Provider } from '../../../../../../interface/ethers';
+
 interface MetaMaskError {
   readonly code: number;
   readonly message: string;
@@ -22,8 +25,31 @@ interface UseReturn {
  * Hooks: Home
  */
 export const useHooks = (
-  setMyAccount: (account: string) => void
+  setMyAccount: (account: string) => void,
+  setProvider: (provider: Web3Provider) => void
 ): UseReturn => {
+  /**
+   * プロバイダーをセットする
+   */
+  const setContractProvider = async (): Promise<void> => {
+    const provider = new ethers.providers.Web3Provider(
+      window.ethereum as unknown as ethers.providers.ExternalProvider
+    );
+
+    setProvider(provider);
+  };
+
+  /**
+   * ログインエラー
+   */
+  const errorLogin = (e: MetaMaskError): void => {
+    if (e.code === 4001) {
+      alert('Please connect to MetaMask.');
+    } else {
+      console.error(e);
+    }
+  };
+
   /**
    * ログインがクリックされた
    */
@@ -34,9 +60,12 @@ export const useHooks = (
         const accounts = (await window.ethereum.request({
           method: 'eth_requestAccounts',
         })) as string[];
-        console.log(accounts);
+
         const account = accounts.length > 0 ? accounts[0] : '';
         setMyAccount(account);
+
+        // プロバイダーをセットする
+        await setContractProvider();
 
         // const hexChainId = (await window.ethereum.request({
         //   method: 'eth_chainId',
@@ -46,11 +75,7 @@ export const useHooks = (
         // console.log(chainName);
       } catch (err: unknown) {
         const e = err as MetaMaskError;
-        if (e.code === 4001) {
-          alert('Please connect to MetaMask.');
-        } else {
-          console.error(e);
-        }
+        errorLogin(e);
       }
     }
   };

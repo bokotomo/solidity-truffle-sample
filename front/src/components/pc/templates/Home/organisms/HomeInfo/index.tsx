@@ -5,17 +5,19 @@ import Spacer from '../../../../atoms/Spacer';
 import Button from '../../../../atoms/Button';
 import Title from '../../../../atoms/Title';
 import Content from '../../../../frames/Content';
+import { Contract } from '../../../../../../interface/ethers';
 
 const Wrapper = styled.div``;
 
 interface Props {
   readonly myAccount: string | undefined;
+  readonly contractLevelItem: Contract | undefined;
 }
 /**
  * Organisms: HomeInfo
  */
 const HomeInfo: React.FC<Props> = (p: Props) => {
-  const { onClick, onClickApprove } = useHooks();
+  const { onClick, onClickApprove } = useHooks(p.contractLevelItem);
 
   return (
     <Wrapper>

@@ -4,6 +4,7 @@ import Spacer from '../../atoms/Spacer';
 import Title from '../../atoms/Title';
 import Content from '../../frames/Content';
 import size from '../../../../modules/const/size';
+import { Web3Provider, Contract } from '../../../../interface/ethers';
 import HomeLogin from './organisms/HomeLogin';
 import HomeInfo from './organisms/HomeInfo';
 
@@ -14,7 +15,9 @@ const Wrapper = styled.div`
 interface Props {
   readonly accounts: string[];
   readonly myAccount: string | undefined;
+  readonly contractLevelItem: Contract | undefined;
   readonly setMyAccount: (account: string) => void;
+  readonly setProvider: (provider: Web3Provider) => void;
 }
 /**
  * Template: Home
@@ -24,7 +27,10 @@ const Home: React.FC<Props> = (p: Props) => {
     <Wrapper>
       {!p.myAccount && (
         <>
-          <HomeLogin setMyAccount={p.setMyAccount} />
+          <HomeLogin
+            setMyAccount={p.setMyAccount}
+            setProvider={p.setProvider}
+          />
           <Spacer.M />
         </>
       )}
@@ -32,7 +38,10 @@ const Home: React.FC<Props> = (p: Props) => {
       {p.myAccount && (
         <>
           <Spacer.M />
-          <HomeInfo myAccount={p.myAccount} />
+          <HomeInfo
+            myAccount={p.myAccount}
+            contractLevelItem={p.contractLevelItem}
+          />
         </>
       )}
 

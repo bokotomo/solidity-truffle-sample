@@ -7,13 +7,16 @@ import { useEvent } from '../modules/event/home';
  */
 function Index() {
   useEvent();
-  const { accounts, myAccount, setMyAccount } = useFetch();
+  const { accounts, myAccount, contractLevelItem, setMyAccount, setProvider } =
+    useFetch();
 
   return (
     <TemplateHome
       accounts={accounts}
       myAccount={myAccount}
+      contractLevelItem={contractLevelItem}
       setMyAccount={setMyAccount}
+      setProvider={setProvider}
     />
   );
 }

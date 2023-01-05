@@ -1,31 +1,24 @@
-import { contract } from '../../../../../../modules/web3';
+import { Contract } from '../../../../../../interface/ethers';
 
 interface UseReturn {
-  // readonly canMetaMask: boolean;
   readonly onClick: () => Promise<void>;
   readonly onClickApprove: () => Promise<void>;
 }
 /**
  * Hooks: Home
  */
-export const useHooks = (): UseReturn => {
+export const useHooks = (
+  contractLevelItem: Contract | undefined
+): UseReturn => {
   /**
    * クリックされた
    */
-  const onClick = async (): Promise<void> => {
-    const tokenId = 0;
-    const level = await contract.methods.levelOf(tokenId).call();
-    console.log(level);
-  };
+  const onClick = async (): Promise<void> => {};
 
   /**
    * 承認がクリックされた
    */
-  const onClickApprove = async (): Promise<void> => {
-    const tokenId = 0;
-    const level = await contract.methods.levelOf(tokenId).call();
-    console.log(level);
-  };
+  const onClickApprove = async (): Promise<void> => {};
 
   return {
     onClick,
