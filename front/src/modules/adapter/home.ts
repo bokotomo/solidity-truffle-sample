@@ -38,8 +38,10 @@ export const useAdapterHome = (): UseReturn => {
     const account = accounts.length > 0 ? accounts[0] : '';
     setMyAccountState(account);
 
+    const signer = provider.getSigner();
+
     // コントラクトをセット
-    const contract = new ethers.Contract(ADDRESS_CONTRACT, ABI, provider);
+    const contract = new ethers.Contract(ADDRESS_CONTRACT, ABI, signer);
     setContractLevelItem(contract as unknown as Contract);
   };
 
