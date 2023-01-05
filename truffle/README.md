@@ -14,14 +14,13 @@ Gold - ERC20
 Items - ERC1155  
 MetaCoin  
 RentalItem - ERC4907  
-UserItem - ERC721
+UserItem - ERC721  
+LevelItem - ERC721(Front で使ってるもの)
 
 ## console
 
 ```
 let ins = await NAME.deployed()
-
-web3.eth.getBalance(accounts[0])
 
 web3.eth.getBalance(accounts[0])
 
