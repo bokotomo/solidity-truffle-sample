@@ -91,7 +91,7 @@ const responsive = {
   pcMax: 1180,
 };
 
-export default {
+const size = {
   /** UIのサイズ */
   ui,
   /** FONTのサイズ */
@@ -102,3 +102,4 @@ export default {
    */
   responsive,
 };
+export default size;

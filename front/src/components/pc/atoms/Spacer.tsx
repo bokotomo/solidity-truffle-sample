@@ -20,10 +20,11 @@ const SpacerXL = styled.div({
 /**
  * 余白: 縦
  */
-export default {
+const Spacer = {
   S: SpacerS,
   M: SpacerM,
   XM: SpacerXM,
   L: SpacerL,
   XL: SpacerXL,
 };
+export default Spacer;

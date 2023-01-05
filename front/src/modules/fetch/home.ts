@@ -20,7 +20,7 @@ export const useFetch = (): UseReturn => {
   }, []);
 
   /**
-   *
+   * テスト
    */
   const getBalance = useCallback(async () => {
     const addressAcounts0 = ADDRESS_ACOUNT0;

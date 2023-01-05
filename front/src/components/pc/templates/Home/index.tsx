@@ -19,10 +19,17 @@ interface Props {
  * Template: Home
  */
 const Home: React.FC<Props> = (p: Props) => {
-  const { onClick, onClickApprove } = useHooks();
+  const { onClick, onClickApprove, onClickLogin } = useHooks();
 
   return (
     <Wrapper>
+      <Title>MetaMaskに接続する</Title>
+      <Spacer.S />
+      <Button onClick={onClickLogin}>ログイン</Button>
+      <Spacer.S />
+
+      <Spacer.M />
+
       <Title>Accounts</Title>
 
       <Spacer.M />
