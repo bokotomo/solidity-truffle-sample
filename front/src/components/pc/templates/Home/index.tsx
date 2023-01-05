@@ -16,8 +16,7 @@ interface Props {
   readonly accounts: string[];
   readonly myAccount: string | undefined;
   readonly contractLevelItem: Contract | undefined;
-  readonly setMyAccount: (account: string) => void;
-  readonly setProvider: (provider: Web3Provider) => void;
+  readonly setProvider: (provider: Web3Provider) => Promise<void>;
 }
 /**
  * Template: Home
@@ -27,10 +26,7 @@ const Home: React.FC<Props> = (p: Props) => {
     <Wrapper>
       {!p.myAccount && (
         <>
-          <HomeLogin
-            setMyAccount={p.setMyAccount}
-            setProvider={p.setProvider}
-          />
+          <HomeLogin setProvider={p.setProvider} />
           <Spacer.M />
         </>
       )}

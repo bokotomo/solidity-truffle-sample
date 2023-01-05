@@ -1,22 +1,8 @@
 import { ethers } from 'ethers';
-import { Web3Provider } from '../../../../../../interface/ethers';
-
-interface MetaMaskError {
-  readonly code: number;
-  readonly message: string;
-  readonly data?: unknown;
-}
-
-/** ChainId一覧 */
-// enum Chains {
-//   Mainnet = 1,
-//   Ropsten = 3,
-//   Rinkeby = 4,
-//   Kovan = 42,
-//   PrivateChain = 1337,
-//   EthereumClassicMainnet = 61,
-//   Morden = 62,
-// }
+import {
+  Web3Provider,
+  MetaMaskError,
+} from '../../../../../../interface/ethers';
 
 interface UseReturn {
   readonly onClickLogin: () => Promise<void>;
@@ -25,8 +11,7 @@ interface UseReturn {
  * Hooks: Home
  */
 export const useHooks = (
-  setMyAccount: (account: string) => void,
-  setProvider: (provider: Web3Provider) => void
+  setProvider: (provider: Web3Provider) => Promise<void>
 ): UseReturn => {
   /**
    * プロバイダーをセットする
@@ -36,7 +21,7 @@ export const useHooks = (
       window.ethereum as unknown as ethers.providers.ExternalProvider
     );
 
-    setProvider(provider);
+    await setProvider(provider);
   };
 
   /**
@@ -57,22 +42,12 @@ export const useHooks = (
     // メタマスクに接続可能か
     if (typeof window.ethereum !== 'undefined') {
       try {
-        const accounts = (await window.ethereum.request({
+        await window.ethereum.request({
           method: 'eth_requestAccounts',
-        })) as string[];
-
-        const account = accounts.length > 0 ? accounts[0] : '';
-        setMyAccount(account);
+        });
 
         // プロバイダーをセットする
         await setContractProvider();
-
-        // const hexChainId = (await window.ethereum.request({
-        //   method: 'eth_chainId',
-        // })) as string;
-        // const chainId = parseInt(hexChainId);
-        // const chainName = Chains[chainId];
-        // console.log(chainName);
       } catch (err: unknown) {
         const e = err as MetaMaskError;
         errorLogin(e);

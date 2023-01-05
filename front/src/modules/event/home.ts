@@ -3,7 +3,7 @@ import { useEffect, useCallback, useRef } from 'react';
 /**
  * データの取得
  */
-export const useEvent = (): void => {
+export const useEventHome = (): void => {
   const noEffected = useRef(true);
 
   /**

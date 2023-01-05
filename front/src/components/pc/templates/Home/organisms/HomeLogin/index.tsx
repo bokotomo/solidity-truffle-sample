@@ -9,14 +9,13 @@ import { Web3Provider } from '../../../../../../interface/ethers';
 const Wrapper = styled.div``;
 
 interface Props {
-  readonly setMyAccount: (account: string) => void;
-  readonly setProvider: (provider: Web3Provider) => void;
+  readonly setProvider: (provider: Web3Provider) => Promise<void>;
 }
 /**
  * Organisms: HomeLogin
  */
 const HomeLogin: React.FC<Props> = (p: Props) => {
-  const { onClickLogin } = useHooks(p.setMyAccount, p.setProvider);
+  const { onClickLogin } = useHooks(p.setProvider);
 
   return (
     <Wrapper>
