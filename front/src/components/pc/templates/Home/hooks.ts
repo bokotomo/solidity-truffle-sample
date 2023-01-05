@@ -66,7 +66,8 @@ export const useHooks = (): UseReturn => {
           method: 'eth_chainId',
         })) as string;
         const chainId = parseInt(hexChainId);
-        console.log(Chains[chainId]);
+        const chainName = Chains[chainId];
+        console.log(chainName);
       } catch (err: unknown) {
         const e = err as MetaMaskError;
         if (e.code === 4001) {

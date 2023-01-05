@@ -1,4 +1,4 @@
-import { useEffect, useState, useCallback } from 'react';
+import { useEffect, useState, useCallback, useRef } from 'react';
 import { web3, contract } from '../web3';
 import { ADDRESS_ACOUNT0 } from '../const/env';
 
@@ -9,6 +9,7 @@ interface UseReturn {
  * データの取得
  */
 export const useFetch = (): UseReturn => {
+  const noEffected = useRef(true);
   const [accounts, setAccounts] = useState<string[]>([]);
 
   /**
@@ -29,6 +30,11 @@ export const useFetch = (): UseReturn => {
   }, []);
 
   useEffect(() => {
+    if (noEffected.current) {
+      noEffected.current = false;
+      return;
+    }
+
     console.log('OK');
 
     fetchAccount();
