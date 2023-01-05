@@ -59,7 +59,7 @@ export const useFetch = (): UseReturn => {
 
     // コントラクトをセット
     const contract = new ethers.Contract(ADDRESS_CONTRACT, ABI, provider);
-    setContractLevelItem(contract);
+    setContractLevelItem(contract as unknown as Contract);
   };
 
   useEffect(() => {
