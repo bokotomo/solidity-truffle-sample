@@ -21,3 +21,7 @@ ERC721 でアイテムの交換ができるサイト
 ・他のアカウント一覧が見れる  
 ・特定のアカウントにトークンの譲与の許可ができる
 ・他のアカウントにアイテムを渡せる
+
+# 画像
+
+![levelitemIMG](https://github.com/bokotomo/solidity-truffle-sample/tree/main/doc/levelitemIMG.jpg 'levelitemIMG')
