@@ -5,13 +5,13 @@ solidity,truffle の React でのサンプル
 
 ## truffle
 
-Solidity + truffle
+Solidity + truffle + Ganache
 
 ## front
 
-React + TS + web3
+React + TS + ethersjs
 
-## metamask
+## metamask 設定
 
 1: metamask 起動  
 2: ネットワークに Ganache の情報を追加（chainId は 1337）  
