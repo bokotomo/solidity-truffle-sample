@@ -24,9 +24,14 @@ interface Props {
  * Organisms: HomeInfo
  */
 const HomeInfo: React.FC<Props> = (p: Props) => {
-  const { onClick, onChangeMint, onClickMint, onClickApprove } = useHooks(
-    p.contractLevelItem
-  );
+  const {
+    onChangeMint,
+    onChangeTransferFrom,
+    onChangeTransferTo,
+    onChangeTransferTokenId,
+    onClickMint,
+    onClickTransfer,
+  } = useHooks(p.contractLevelItem);
 
   return (
     <Wrapper>
@@ -38,23 +43,37 @@ const HomeInfo: React.FC<Props> = (p: Props) => {
 
       <Spacer.M />
 
+      <Title>My TokenIds</Title>
+      <Spacer.S />
+      <Content>1,2,2</Content>
+
+      <Spacer.M />
+
       <Title>Mint</Title>
       <Spacer.S />
-      <Input onChange={onChangeMint} placeholder="0x~~" />
+      <Input onChange={onChangeMint} type="text" placeholder="0x~~" />
       <Spacer.S />
-      <Button onClick={onClickMint}>Mint</Button>
+      <Button onClick={onClickMint}>Mintする</Button>
 
       <Spacer.M />
 
-      <Title>Level</Title>
+      <Title>Transfer</Title>
       <Spacer.S />
-      <Button onClick={onClick}>button</Button>
-
-      <Spacer.M />
-
-      <Title>approve</Title>
+      <Input
+        onChange={onChangeTransferFrom}
+        type="text"
+        placeholder="0x~: from"
+      />
       <Spacer.S />
-      <Button onClick={onClickApprove}>approveする</Button>
+      <Input onChange={onChangeTransferTo} type="text" placeholder="0x~: to" />
+      <Spacer.S />
+      <Input
+        onChange={onChangeTransferTokenId}
+        type="number"
+        placeholder="0: tokenId"
+      />
+      <Spacer.S />
+      <Button onClick={onClickTransfer}>Transferする</Button>
     </Wrapper>
   );
 };
