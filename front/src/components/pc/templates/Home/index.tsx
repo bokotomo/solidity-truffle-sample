@@ -25,12 +25,7 @@ interface Props {
 const Home: React.FC<Props> = (p: Props) => {
   return (
     <Wrapper>
-      {!p.myAccount && (
-        <>
-          <HomeLogin setProvider={p.setProvider} />
-          <Spacer.M />
-        </>
-      )}
+      {!p.myAccount && <HomeLogin setProvider={p.setProvider} />}
 
       {p.myAccount && (
         <>
@@ -43,7 +38,7 @@ const Home: React.FC<Props> = (p: Props) => {
         </>
       )}
 
-      <Spacer.M />
+      <Spacer.L />
 
       <Title>Chain All Accounts</Title>
 

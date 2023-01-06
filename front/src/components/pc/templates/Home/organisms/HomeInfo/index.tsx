@@ -17,7 +17,7 @@ const Input = styled.input`
 `;
 
 interface Props {
-  readonly myAccount: string | undefined;
+  readonly myAccount: string;
   readonly myTokenIds: number[];
   readonly contractLevelItem: Contract | undefined;
 }
@@ -37,12 +37,10 @@ const HomeInfo: React.FC<Props> = (p: Props) => {
   return (
     <Wrapper>
       <Title>My account</Title>
+      <Spacer.S />
+      <Content>{p.myAccount}</Content>
 
-      <Spacer.M />
-
-      <Content>{p.myAccount || 'no login'}</Content>
-
-      <Spacer.M />
+      <Spacer.L />
 
       <Title>My TokenIds</Title>
       <Spacer.S />
@@ -55,15 +53,15 @@ const HomeInfo: React.FC<Props> = (p: Props) => {
         ))}
       </Content>
 
-      <Spacer.M />
+      <Spacer.L />
 
       <Title>Mint</Title>
       <Spacer.S />
-      <Input onChange={onChangeMint} type="text" placeholder="0x~~" />
+      <Input onChange={onChangeMint} type="text" placeholder="to: 0x~" />
       <Spacer.S />
       <Button onClick={onClickMint}>Mintする</Button>
 
-      <Spacer.M />
+      <Spacer.L />
 
       <Title>Transfer</Title>
       <Spacer.S />

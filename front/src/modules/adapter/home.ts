@@ -4,6 +4,10 @@ import { ADDRESS_CONTRACT } from '../const/env';
 import { ABI } from '../../modules/web3';
 import { Web3Provider, Contract } from '../../interface/ethers';
 
+interface OwnedTokensOf {
+  readonly _hex: string;
+}
+
 interface UseReturn {
   readonly myAccount: string | undefined;
   readonly providerEthers: Web3Provider | undefined;
@@ -40,15 +44,11 @@ export const useAdapterHome = (): UseReturn => {
     const account = accounts.length > 0 ? accounts[0] : '';
     setMyAccountState(account);
 
-    const signer = provider.getSigner();
-
     // コントラクトをセット
+    const signer = provider.getSigner();
     const contract = new ethers.Contract(ADDRESS_CONTRACT, ABI, signer);
     setContractLevelItem(contract as unknown as Contract);
 
-    interface OwnedTokensOf {
-      readonly _hex: string;
-    }
     const tokenHexIds = (await contract.ownedTokensOf(
       account
     )) as OwnedTokensOf[];

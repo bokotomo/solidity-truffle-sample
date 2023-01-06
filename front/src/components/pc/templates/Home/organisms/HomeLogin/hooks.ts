@@ -8,7 +8,7 @@ interface UseReturn {
   readonly onClickLogin: () => Promise<void>;
 }
 /**
- * Hooks: Home
+ * Hooks: Login
  */
 export const useHooks = (
   setProvider: (provider: Web3Provider) => Promise<void>
