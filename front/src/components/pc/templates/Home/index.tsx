@@ -16,6 +16,7 @@ interface Props {
   readonly accounts: string[];
   readonly myAccount: string | undefined;
   readonly contractLevelItem: Contract | undefined;
+  readonly myTokenIds: number[];
   readonly setProvider: (provider: Web3Provider) => Promise<void>;
 }
 /**
@@ -37,6 +38,7 @@ const Home: React.FC<Props> = (p: Props) => {
           <HomeInfo
             myAccount={p.myAccount}
             contractLevelItem={p.contractLevelItem}
+            myTokenIds={p.myTokenIds}
           />
         </>
       )}

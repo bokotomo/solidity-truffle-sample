@@ -35,7 +35,10 @@ export const useHooks = (
    * クリックされた: Mint
    */
   const onClickMint = async (): Promise<void> => {
-    if (!contractLevelItem) return;
+    if (!contractLevelItem || !mintAddress) {
+      alert('no');
+      return;
+    }
     const tx = (await contractLevelItem.mint(mintAddress)) as unknown as {
       readonly wait: () => void;
     };
@@ -74,7 +77,10 @@ export const useHooks = (
    * クリックされた: Transfer
    */
   const onClickTransfer = async (): Promise<void> => {
-    if (!transferFromAddress || !transferToAddress || !transferTokenId) return;
+    if (!transferFromAddress || !transferToAddress || !transferTokenId) {
+      alert('no');
+      return;
+    }
     const id = Number(transferTokenId);
     if (!contractLevelItem) return;
 

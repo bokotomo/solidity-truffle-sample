@@ -9,13 +9,15 @@ import { useAdapterHome } from '../modules/adapter/home';
 function Index() {
   useEventHome();
   const { accounts } = useFetchHome();
-  const { myAccount, contractLevelItem, setProvider } = useAdapterHome();
+  const { myAccount, contractLevelItem, myTokenIds, setProvider } =
+    useAdapterHome();
 
   return (
     <TemplateHome
       accounts={accounts}
       myAccount={myAccount}
       contractLevelItem={contractLevelItem}
+      myTokenIds={myTokenIds}
       setProvider={setProvider}
     />
   );

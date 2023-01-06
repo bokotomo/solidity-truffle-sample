@@ -18,6 +18,7 @@ const Input = styled.input`
 
 interface Props {
   readonly myAccount: string | undefined;
+  readonly myTokenIds: number[];
   readonly contractLevelItem: Contract | undefined;
 }
 /**
@@ -45,7 +46,14 @@ const HomeInfo: React.FC<Props> = (p: Props) => {
 
       <Title>My TokenIds</Title>
       <Spacer.S />
-      <Content>1,2,2</Content>
+      <Content>
+        {p.myTokenIds.map((id, index) => (
+          <React.Fragment key={id}>
+            {index !== 0 && <>, </>}
+            {id}
+          </React.Fragment>
+        ))}
+      </Content>
 
       <Spacer.M />
 
@@ -62,15 +70,15 @@ const HomeInfo: React.FC<Props> = (p: Props) => {
       <Input
         onChange={onChangeTransferFrom}
         type="text"
-        placeholder="0x~: from"
+        placeholder="from: 0x~"
       />
       <Spacer.S />
-      <Input onChange={onChangeTransferTo} type="text" placeholder="0x~: to" />
+      <Input onChange={onChangeTransferTo} type="text" placeholder="to: 0x~" />
       <Spacer.S />
       <Input
         onChange={onChangeTransferTokenId}
         type="number"
-        placeholder="0: tokenId"
+        placeholder="tokenId: 0"
       />
       <Spacer.S />
       <Button onClick={onClickTransfer}>Transferする</Button>

@@ -44,7 +44,6 @@ export type Transfer = ContractEventLog<{
   1: string;
   2: string;
 }>;
-
 export interface LevelItemMethods {
   /**
    * See {IERC721-approve}.
@@ -138,7 +137,7 @@ export interface LevelItemMethods {
   ): NonPayableTransactionObject<void>;
 
   /**
-   * アドレスにアイテムの登録
+   * mint
    */
   mint(player: string): NonPayableTransactionObject<string>;
 
@@ -146,6 +145,11 @@ export interface LevelItemMethods {
    * Returns the level of the `tokenId`. Does NOT revert if token doesn't exist
    */
   levelOf(tokenId: number | string | BN): NonPayableTransactionObject<string>;
+
+  /**
+   * Returns tokenIds
+   */
+  ownedTokensOf(player: string): NonPayableTransactionObject<string[]>;
 }
 
 export interface LevelItem extends BaseContract {

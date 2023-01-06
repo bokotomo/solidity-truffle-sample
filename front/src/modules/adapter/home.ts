@@ -8,6 +8,7 @@ interface UseReturn {
   readonly myAccount: string | undefined;
   readonly providerEthers: Web3Provider | undefined;
   readonly contractLevelItem: Contract | undefined;
+  readonly myTokenIds: number[];
   readonly setProvider: (provider: Web3Provider) => Promise<void>;
 }
 /**
@@ -23,6 +24,7 @@ export const useAdapterHome = (): UseReturn => {
   const [contractLevelItem, setContractLevelItem] = useState<
     Contract | undefined
   >(undefined);
+  const [myTokenIds, setMyTokenIds] = useState<number[]>([]);
 
   /**
    * プロバイダーをセット
@@ -43,6 +45,15 @@ export const useAdapterHome = (): UseReturn => {
     // コントラクトをセット
     const contract = new ethers.Contract(ADDRESS_CONTRACT, ABI, signer);
     setContractLevelItem(contract as unknown as Contract);
+
+    interface OwnedTokensOf {
+      readonly _hex: string;
+    }
+    const tokenHexIds = (await contract.ownedTokensOf(
+      account
+    )) as OwnedTokensOf[];
+    const tokenIds = tokenHexIds.map(t => parseInt(t._hex, 16));
+    setMyTokenIds(tokenIds);
   };
 
   return {
@@ -50,5 +61,6 @@ export const useAdapterHome = (): UseReturn => {
     providerEthers,
     contractLevelItem,
     setProvider,
+    myTokenIds,
   };
 };
