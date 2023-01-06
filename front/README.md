@@ -24,4 +24,4 @@ ERC721 でアイテムの交換ができるサイト
 
 # 画像
 
-![levelitemIMG](https://github.com/bokotomo/solidity-truffle-sample/tree/main/doc/levelitemIMG.jpg?raw=true)
+![levelitemIMG](https://github.com/bokotomo/solidity-truffle-sample/raw/main/doc/levelitemIMG.jpg?raw=true)
