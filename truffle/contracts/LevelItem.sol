@@ -98,7 +98,7 @@ contract LevelItem is ERC721 {
 
         // barn or transfer
         if (from != address(0)) {
-            for (uint256 i = 0; i < _ownedTokens[from].length - 1; i++) {
+            for (uint256 i = 0; i < _ownedTokens[from].length; i++) {
                 if (_ownedTokens[from][i] == firstTokenId) {
                     _ownedTokens[from][i] = _ownedTokens[from][
                         _ownedTokens[from].length - 1
