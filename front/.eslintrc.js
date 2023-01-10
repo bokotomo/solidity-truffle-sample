@@ -50,13 +50,10 @@ module.exports = {
         jsxBracketSameLine: false,
       },
     ],
-
     'react/prop-types': 'off', // Disable prop-types as we use TypeScript for type checking
-
     '@typescript-eslint/explicit-function-return-type': ['error'],
-
     'sort-imports': 'off',
-
+    'react/react-in-jsx-scope': 'off',
     'import/order': [
       'error',
       {

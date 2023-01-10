@@ -1,7 +1,7 @@
-import Web3 from 'web3';
 import { ethers } from 'ethers';
-import { CHAIN_HOST, CHAIN_PORT } from '../modules/const/env';
+import Web3 from 'web3';
 import ContractLevelItem from '../contracts/LevelItem.json';
+import { CHAIN_HOST, CHAIN_PORT } from '../modules/const/env';
 
 const port = CHAIN_PORT;
 const host = CHAIN_HOST;

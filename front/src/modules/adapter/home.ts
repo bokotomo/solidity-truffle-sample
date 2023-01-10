@@ -1,8 +1,8 @@
-import { useState } from 'react';
 import { ethers } from 'ethers';
-import { ADDRESS_CONTRACT } from '../const/env';
-import { ABI } from '../../modules/web3';
+import { useState } from 'react';
 import { Web3Provider, Contract } from '../../interface/ethers';
+import { ABI } from '../../modules/web3';
+import { ADDRESS_CONTRACT } from '../const/env';
 
 interface OwnedTokensOf {
   readonly _hex: string;

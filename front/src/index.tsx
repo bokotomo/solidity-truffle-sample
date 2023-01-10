@@ -4,6 +4,7 @@ import './css/index.css';
 import App from './pages';
 import reportWebVitals from './reportWebVitals';
 
+// eslint-disable-next-line import/no-named-as-default-member
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );

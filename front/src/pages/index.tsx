@@ -1,12 +1,11 @@
 import TemplateHome from '../components/pc/templates/Home';
-import { useFetchHome } from '../modules/fetch/home';
-import { useEventHome } from '../modules/event/home';
 import { useAdapterHome } from '../modules/adapter/home';
-
+import { useEventHome } from '../modules/event/home';
+import { useFetchHome } from '../modules/fetch/home';
 /**
  * ページ: トップページ
  */
-function Index() {
+function Index(): JSX.Element {
   useEventHome();
   const { accounts } = useFetchHome();
   const { myAccount, contractLevelItem, myTokenIds, setProvider } =
