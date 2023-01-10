@@ -2,6 +2,7 @@ import TemplateHome from '../components/pc/templates/Home';
 import { useAdapterHome } from '../modules/adapter/home';
 import { useEventHome } from '../modules/event/home';
 import { useFetchHome } from '../modules/fetch/home';
+
 /**
  * ページ: トップページ
  */

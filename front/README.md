@@ -6,7 +6,7 @@ ERC721 の検証
 ## memo
 
 コードは簡潔に書いてしまう。  
-Ganache 環境
+Ganache を起動してる必要あり。
 
 ## 機能
 
@@ -18,7 +18,8 @@ Ganache 環境
 
 # 画像
 
-![levelitemIMG](https://github.com/bokotomo/solidity-truffle-sample/raw/main/doc/levelitemIMG.jpg?raw=true)
+![levelitemIMG](https://github.com/bokotomo/solidity-truffle-sample/raw/main/doc/levelitemIMG.jpg?raw=true)  
+![levelitemLoginIMG](https://github.com/bokotomo/solidity-truffle-sample/raw/main/doc/levelitemLoginIMG.jpg?raw=true)
 
 ## update
 
