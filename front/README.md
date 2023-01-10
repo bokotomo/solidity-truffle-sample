@@ -18,11 +18,13 @@ Ganache を起動してる必要あり。
 
 # 画像
 
-![levelitemIMG](https://github.com/bokotomo/solidity-truffle-sample/raw/main/doc/levelitemIMG.jpg?raw=true)  
-![levelitemLoginIMG](https://github.com/bokotomo/solidity-truffle-sample/raw/main/doc/levelitemLoginIMG.jpg?raw=true)
+![levelitemLoginIMG](https://github.com/bokotomo/solidity-truffle-sample/raw/main/doc/levelitemLoginIMG.jpg?raw=true)  
+![levelitemIMG](https://github.com/bokotomo/solidity-truffle-sample/raw/main/doc/levelitemIMG.jpg?raw=true)
 
 ## update
 
 ```
-npm i -D  @typescript-eslint/eslint-plugin @typescript-eslint/parser  eslint eslint-config-prettier eslint-import-resolver-typescript eslint-plugin-import eslint-plugin-prettier eslint-plugin-react prettier typescript @typechain/web3-v1 typechain
+npm i @emotion/babel-plugin @emotion/react @emotion/styled @metamask/providers @testing-library/jest-dom @testing-library/react @testing-library/user-event dotenv ethers react react-dom react-scripts web-vitals web3 web3-utils
+
+npm i -D @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint eslint-config-prettier eslint-import-resolver-typescript eslint-plugin-import eslint-plugin-prettier eslint-plugin-react prettier typescript @typechain/web3-v1 typechain @types/jest @types/node @types/react @types/react-dom
 ```
